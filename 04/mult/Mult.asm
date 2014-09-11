@@ -6,4 +6,26 @@
 // Multiplies R0 and R1 and stores the result in R2.
 // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[3], respectively.)
 
-// Put your code here.
+@R2
+M=0
+@R1
+D=M
+@i   // counter
+M=D // Initialize counter to R1 
+@END
+D;JEQ // If R1==0, we're done
+(LOOP)
+  @R0
+  D=M // D = R0
+  @R2
+  M=M+D
+  // Decrease i by 1
+  @i
+  M=M-1
+  D=M
+  @LOOP
+  D;JGT // Repeat if i > 0 
+(END)
+// Terminate this hack program
+@END
+0;JMP
