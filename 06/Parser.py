@@ -16,7 +16,7 @@ class Parser:
         try:
             with open(filepath, 'r') as f:
                 self.commands= list(filter(len,
-                         [re.sub('//.*$', '', l.strip()) for l in f]))
+                         [re.sub('//.*$', '', l).strip() for l in f]))
         except FileNotFoundError:
             print("Could not find %s" % (filepath))
 

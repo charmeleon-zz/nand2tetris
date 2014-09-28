@@ -9,7 +9,7 @@ class SymbolTable:
     
     def __init__(self):
         """Creates a new empty symbol table"""
-        self.table = predefined # fill with predefined symbols
+        self.table = SymbolTable.predefined # fill with predefined symbols
         
     def addEntry(self, symbol, address):
         """Adds the pair (symbol, address) to the table"""
