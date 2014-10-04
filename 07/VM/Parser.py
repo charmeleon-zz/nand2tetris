@@ -8,16 +8,22 @@ class Parser:
 
     def __init(self, file):
         """Opens the input file/stream and gets ready to parse it"""
-        pass
+        try:
+            with open(file, 'r') as f:
+                self.commands = f.readlines()
+        except Exception:
+            print("An error occurred")
+            sys.exit(0)
+
 
     def hasMoreCommands(self):
         """Are there more commands in the input?"""
-        pass
+        return len(self.commands) > 0
 
     def advance(self):
         """Reads the next command from the input and makes it the current
         command. Should be called only if hasMoreCommands is true."""
-        pass
+        self.command = self.commands.pop(0)
 
     def commandType(self):
         """Returns the type of the current VM command. C_ARITHMETIC is returned

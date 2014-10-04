@@ -5,7 +5,7 @@ class CodeWriter:
 
     def __init__(self, outfile):
         """Opens the output file/stream and gets ready to write into it"""
-        pass
+        self.outfile = open(outfile, 'w+')
 
     def setFileName(self, filename):
         """Informs the code writer that the translation of a new VM file is started"""
@@ -21,5 +21,5 @@ class CodeWriter:
         pass
 
     def Close(self):
-        """Closes the output flie"""
-        pass
+        """Closes the output file"""
+        self.outfile.close()
